@@ -1,0 +1,5 @@
+id_usr = int(input())
+qtd_hrs = int(input())
+vlr_hrs = float(input())
+print(f"NUMBER = {id_usr}")
+print(f"SALARY = U$ {(qtd_hrs * vlr_hrs):.2f}")
