@@ -6,5 +6,5 @@ if __name__ == "__main__":
     try:
         solut = Solution()
         solut.time_converter(int(input()))
-    except ValueError():
+    except ValueError:
         pass
