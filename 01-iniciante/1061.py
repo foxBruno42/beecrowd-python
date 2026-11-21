@@ -1,3 +1,4 @@
+from datetime import datetime
 class Solution():
     @staticmethod
     def days_hours() -> int:
@@ -5,31 +6,25 @@ class Solution():
         time_1 = input()
         day_2 = input()
         time_2 = input()
+        day_ini = day_1.split()[1] 
+        time_ini = time_1.replace(" ", "")
+        day_end = day_2.split()[1]
+        time_end = time_2.replace(" ", "")
+        ini_date_complete = f"2026-04-{day_ini.zfill(2)} {time_ini}"
+        final_date_complete = f"2026-04-{day_end.zfill(2)} {time_end}"
+        total_time = datetime.strptime(final_date_complete, "%Y-%m-%d %H:%M:%S") - datetime.strptime(ini_date_complete, "%Y-%m-%d %H:%M:%S")
+        days = total_time.days
+        secs = total_time.seconds
+        horas = secs // 3600
+        minutos = (secs % 3600) // 60
+        segundos = secs % 60
+        print(f"{days} dia(s)")
+        print(f"{horas} hora(s)")
+        print(f"{minutos} minuto(s)")
+        print(f"{segundos} segundo(s)")
 
-# Pedrinho está organizando um evento em sua Universidade. O evento deverá ser no mês de Abril, iniciando e terminando dentro do mês. O problema é que Pedrinho quer calcular o tempo que o evento vai durar, uma vez que ele sabe quando inicia e quando termina o evento.
-# 
-# Sabendo que o evento pode durar de poucos segundos a vários dias, você deverá ajudar Pedrinho a calcular a duração deste evento.
-# Entrada
-# 
-# Como entrada, na primeira linha vai haver a descrição “Dia”, seguido de um espaço e o dia do mês no qual o evento vai começar. Na linha seguinte, será informado o momento no qual o evento vai iniciar, no formato hh : mm : ss. Na terceira e quarta linha de entrada haverá outra informação no mesmo formato das duas primeiras linhas, indicando o término do evento.
-# Saída
-# 
-# Na saída, deve ser apresentada a duração do evento, no seguinte formato:
-# 
-# W dia(s)
-# X hora(s)
-# Y minuto(s)
-# Z segundo(s)
-# 
-# Obs: Considere que o evento do caso de teste para o problema tem duração mínima de 1 minuto.
-# Exemplo de Entrada 	Exemplo de Saída
-# 
-# Dia 5
-# 08 : 12 : 23
-# Dia 9
-# 06 : 13 : 23
-# 	
-# 
-# 3 dia(s)
-# 22 hora(s)
-# 1 minuto(s)
+if __name__ == "__main__":
+    try:
+        Solution.days_hours()
+    except ValueError:
+        pass
